@@ -17,6 +17,7 @@ _有限上下文文本分类 Harness 的模块化设计文档，日期：2026-05
 | LLM 分类推理 | [05_llm_classifier.md](./05_llm_classifier.md) | 在候选标签内完成单轮或少量多轮分类 |
 | 输出解析与验证 | [06_output_parser_verifier.md](./06_output_parser_verifier.md) | 将 LLM 输出映射为合法 exact-match 标签 |
 | 反馈记忆与评测 | [07_feedback_and_evaluation.md](./07_feedback_and_evaluation.md) | 记录错误、混淆、指标和 ablation 路线 |
+| 记忆增强操作 | [08_memory_enhancement_operations.md](./08_memory_enhancement_operations.md) | 用 LLM 或规则生成 Label Card，增强外部记忆 |
 
 ## 总体数据流
 
@@ -60,4 +61,3 @@ flowchart LR
 - 不读写磁盘，不访问测试标签，不硬编码 DEV 测试集答案。
 - 每次 `call_llm` 前必须用 `self.count_messages_tokens(messages)` 检查预算。
 - `predict` 返回值必须是训练集中出现过的标签字符串。
-
